@@ -20,6 +20,10 @@ package com.xuanchew;
 import java.util.Scanner;
 
 public class Bedazzler {
+    //Constant
+    public static final String DELIMITER = "*";
+
+
     public static String bedazzle(String input){
 
         //Declare character array and assign characters from string input into it
@@ -32,11 +36,11 @@ public class Bedazzler {
 
         //For loop to iterate through array
         for(int i = 0; i < letters.length; i++){
-            sb.append("*" + letters[i]);
+            sb.append(DELIMITER + letters[i]);
 
             //add an asterisk after sentences
             if(i + 1 == letters.length){
-                sb.append("*");
+                sb.append(DELIMITER);
             }
 
             //add a space at a space to double it
@@ -44,9 +48,7 @@ public class Bedazzler {
                 sb.append(" ");
             }
 
-
         }
-
         //Returns final String
         return sb.toString();
     }
@@ -54,10 +56,21 @@ public class Bedazzler {
 
     //Main method
     public static void main(String[] args){
-        String input = "This is a string";
+        //Declare Input String Variable
+        String input;
 
-        System.out.println(bedazzle(input));
+        //Initialize Scanner
+        Scanner scan = new Scanner(System.in);
 
+        //Request for input, read input
+        System.out.print("Input a string to BEDAZZLE: ");
+        input = scan.nextLine();
+
+        //Call Bedazzle
+        System.out.println(Bedazzler.bedazzle(input));
+
+        //Close Scanner
+        scan.close();
     }
 }
 
